@@ -11,9 +11,8 @@ import Config from '../config';
 class App extends Component {
 
   componentWillMount(){
-    console.log(Config.MY_KEY)
       const config = {
-    apiKey: "Config.MY_KEY",
+    apiKey: Config.MY_KEY,
     authDomain: "manager-4fabc.firebaseapp.com",
     databaseURL: "https://manager-4fabc.firebaseio.com",
     projectId: "manager-4fabc",
