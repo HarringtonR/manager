@@ -13,10 +13,10 @@ class LoginForm extends Component {
   onPasswordChange(text){
     this.props.passwordChanged(text);
   }
-onButtonPress(){
-  const { email, password } = this.props;
-  this.props.loginUser({ email, password });
-}
+  onButtonPress(){
+    const { email, password } = this.props;
+    this.props.loginUser({ email, password });
+  }
 
 renderError(){
   if(this.props.error){
@@ -39,8 +39,6 @@ renderButton(){
       </Button>
     );
 }
-
-
 
   render() {
     return (
@@ -80,7 +78,7 @@ const styles = {
     color: 'red'
   },
   margin: {
-    marginTop: 30
+    marginTop: 0
   }
 }
 
