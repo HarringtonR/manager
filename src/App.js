@@ -25,14 +25,11 @@ class App extends Component {
    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={ store }>
-        <LoginForm />
+        <LoginForm/>
       </Provider>
     );
   }
 }
 
-const styles = {
-
-};
 
 export default App;

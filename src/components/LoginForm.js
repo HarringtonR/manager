@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import{ Text, View } from 'react-native';
-import { Card, CardSection, Input, Button } from './common';
+import { Card, CardSection, Input, Button, Spinner } from './common';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 
@@ -29,9 +29,22 @@ renderError(){
       )
   }
 }
+renderButton(){
+  if(this.props.loading){
+    return <Spinner size='large' />
+  }
+  return (
+      <Button onPress={this.onButtonPress.bind(this)}>
+        Login
+      </Button>
+    );
+}
+
+
 
   render() {
     return (
+      <View style={styles.margin}>
       <Card>
           <CardSection>
             <Input
@@ -52,11 +65,10 @@ renderError(){
           </CardSection>
           {this.renderError()}
           <CardSection>
-            <Button onPress={this.onButtonPress.bind(this)}>
-              Login
-            </Button>
+          {this.renderButton()}
           </CardSection>
         </Card>
+        </View>
     );
   }
 }
@@ -66,6 +78,9 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  margin: {
+    marginTop: 30
   }
 }
 
@@ -73,7 +88,8 @@ const mapStateToProps = state => {
   return {
     email: state.auth.email,
     password: state.auth.password,
-    error: state.auth.error
+    error: state.auth.error,
+    loading: state.auth.loading
   };
 };
 
