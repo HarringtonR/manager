@@ -61,9 +61,9 @@ renderButton(){
               value={this.props.password}
             />
           </CardSection>
-          {this.renderError()}
+            {this.renderError()}
           <CardSection>
-          {this.renderButton()}
+            {this.renderButton()}
           </CardSection>
         </Card>
         </View>
